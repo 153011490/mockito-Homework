@@ -105,6 +105,8 @@ public class SalesAppTest {
 		Assert.assertEquals(salesReportDataList,result);
 	}
 
+
+
 	private Date getYesterDay(){
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.DATE,-1);
