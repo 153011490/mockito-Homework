@@ -191,7 +191,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SalesAppTest.testGetHeaders_givenNatTradeTrue_thenReturnHeaderHasTime">
+  <component name="RunManager" selected="JUnit.SalesAppTest">
     <configuration name="SalesAppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="junit_test" />
       <extension name="coverage">
@@ -223,7 +223,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SalesAppTest.testGenerateReport_givenSalesIdAndSalesEffective_thenGiveHeaders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SalesAppTest.testGetHeaders_givenNatTradeFalse_thenReturnHeaderHasLocalTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="junit_test" />
       <extension name="coverage">
         <pattern>
@@ -233,7 +233,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="sales" />
       <option name="MAIN_CLASS_NAME" value="sales.SalesAppTest" />
-      <option name="METHOD_NAME" value="testGenerateReport_givenSalesIdAndSalesEffective_thenGiveHeaders" />
+      <option name="METHOD_NAME" value="testGetHeaders_givenNatTradeFalse_thenReturnHeaderHasLocalTime" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -273,11 +273,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SalesAppTest.testGetHeaders_givenNatTradeTrue_thenReturnHeaderHasTime" />
         <item itemvalue="JUnit.SalesAppTest" />
+        <item itemvalue="JUnit.SalesAppTest.testGetHeaders_givenNatTradeFalse_thenReturnHeaderHasLocalTime" />
+        <item itemvalue="JUnit.SalesAppTest.testGetHeaders_givenNatTradeTrue_thenReturnHeaderHasTime" />
         <item itemvalue="JUnit.SalesAppTest.testUploadDocument_givenAReport_thentoXmlBeCalled" />
         <item itemvalue="JUnit.SalesAppTest.testGenerateReport_givenSalesIdAndNatTradeIsTrue_thenGiveHeaders" />
-        <item itemvalue="JUnit.SalesAppTest.testGenerateReport_givenSalesIdAndSalesEffective_thenGiveHeaders" />
       </list>
     </recent_temporary>
   </component>

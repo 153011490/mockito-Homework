@@ -124,6 +124,16 @@ public class SalesAppTest {
 		Assert.assertEquals("Time",headers.get(3));
 	}
 
+	@Test
+	public void testGetHeaders_givenNatTradeFalse_thenReturnHeaderHasLocalTime() {
+		//given
+		salesApp = spy(new SalesApp());
+		boolean isNatTrade=false;
+		//when
+		List<String> headers=salesApp.getHeaders(isNatTrade);
+		Assert.assertEquals("Local Time",headers.get(3));
+	}
+
 	private Date getYesterDay(){
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.DATE,-1);
