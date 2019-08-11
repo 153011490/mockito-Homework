@@ -1,5 +1,6 @@
 package sales;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -8,6 +9,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import static org.mockito.Mockito.*;
 
@@ -110,6 +112,16 @@ public class SalesAppTest {
 		salesApp.uploadDocument(report);
 		//then
 		verify(report,times(1)).toXml();
+	}
+
+	@Test
+	public void testGetHeaders_givenNatTradeTrue_thenReturnHeaderHasTime() {
+		//given
+		salesApp = spy(new SalesApp());
+		boolean isNatTrade=true;
+		//when
+		List<String> headers=salesApp.getHeaders(isNatTrade);
+		Assert.assertEquals("Time",headers.get(3));
 	}
 
 	private Date getYesterDay(){

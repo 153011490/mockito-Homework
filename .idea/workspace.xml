@@ -20,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sales/SalesApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="32" column="33" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="33" />
+            <state relative-caret-position="204">
+              <caret line="39" column="79" selection-start-line="39" selection-start-column="75" selection-end-line="39" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#738#739#0" expanded="true" />
@@ -38,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/sales/SalesAppTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
+            <state relative-caret-position="483">
+              <caret line="122" column="59" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Downloads/SalesAppTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="108" column="20" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="34" />
+            <state relative-caret-position="272">
+              <caret line="97" column="37" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -191,7 +191,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SalesAppTest">
+  <component name="RunManager" selected="JUnit.SalesAppTest.testGetHeaders_givenNatTradeTrue_thenReturnHeaderHasTime">
     <configuration name="SalesAppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="junit_test" />
       <extension name="coverage">
@@ -239,7 +239,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SalesAppTest.testGenerateReport_givenSalesIdAndSalesEffective_thenGiveNoReportDataList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SalesAppTest.testGetHeaders_givenNatTradeTrue_thenReturnHeaderHasTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="junit_test" />
       <extension name="coverage">
         <pattern>
@@ -249,7 +249,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="sales" />
       <option name="MAIN_CLASS_NAME" value="sales.SalesAppTest" />
-      <option name="METHOD_NAME" value="testGenerateReport_givenSalesIdAndSalesEffective_thenGiveNoReportDataList" />
+      <option name="METHOD_NAME" value="testGetHeaders_givenNatTradeTrue_thenReturnHeaderHasTime" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -273,11 +273,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SalesAppTest.testGetHeaders_givenNatTradeTrue_thenReturnHeaderHasTime" />
         <item itemvalue="JUnit.SalesAppTest" />
         <item itemvalue="JUnit.SalesAppTest.testUploadDocument_givenAReport_thentoXmlBeCalled" />
         <item itemvalue="JUnit.SalesAppTest.testGenerateReport_givenSalesIdAndNatTradeIsTrue_thenGiveHeaders" />
         <item itemvalue="JUnit.SalesAppTest.testGenerateReport_givenSalesIdAndSalesEffective_thenGiveHeaders" />
-        <item itemvalue="JUnit.SalesAppTest.testGenerateReport_givenSalesIdAndSalesEffective_thenGiveNoReportDataList" />
       </list>
     </recent_temporary>
   </component>
@@ -295,12 +295,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SalesAppTest_testGenerateReport_givenSalesIdAndSalesEffective_thenGiveNoReportDataList - 2019.08.11 at 16h 46m 07s.xml">
-      <configuration name="SalesAppTest.testGenerateReport_givenSalesIdAndSalesEffective_thenGiveNoReportDataList" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SalesAppTest_testGenerateReport_givenSalesIdAndSalesEffective_thenGiveNoReportDataList - 2019.08.11 at 16h 46m 10s.xml">
-      <configuration name="SalesAppTest.testGenerateReport_givenSalesIdAndSalesEffective_thenGiveNoReportDataList" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SalesAppTest_testGenerateReport_givenSalesIdAndSalesEffective_thenGiveNoReportDataList - 2019.08.11 at 16h 50m 07s.xml">
       <configuration name="SalesAppTest.testGenerateReport_givenSalesIdAndSalesEffective_thenGiveNoReportDataList" configurationId="JUnit" />
     </history-entry>
@@ -323,6 +317,12 @@
       <configuration name="SalesAppTest.testGenerateReport_givenSalesIdAndNatTradeIsTrue_thenGiveHeaders" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SalesAppTest - 2019.08.11 at 17h 03m 18s.xml">
+      <configuration name="SalesAppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SalesAppTest_testUploadDocument_givenAReport_thentoXmlBeCalled - 2019.08.11 at 17h 09m 29s.xml">
+      <configuration name="SalesAppTest.testUploadDocument_givenAReport_thentoXmlBeCalled" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SalesAppTest - 2019.08.11 at 17h 09m 35s.xml">
       <configuration name="SalesAppTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -502,15 +502,15 @@
     </entry>
     <entry file="file://$USER_HOME$/Downloads/SalesAppTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="108" column="20" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="34" />
+        <state relative-caret-position="272">
+          <caret line="97" column="37" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sales/SalesApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="33" />
+        <state relative-caret-position="204">
+          <caret line="39" column="79" selection-start-line="39" selection-start-column="75" selection-end-line="39" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#738#739#0" expanded="true" />
@@ -525,8 +525,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/sales/SalesAppTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
+        <state relative-caret-position="483">
+          <caret line="122" column="59" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
