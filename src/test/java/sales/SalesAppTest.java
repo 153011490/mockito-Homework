@@ -6,6 +6,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import static org.mockito.Mockito.*;
@@ -41,6 +42,54 @@ public class SalesAppTest {
 		salesApp.generateSalesActivityReport(salesId,true);
 		//then
 		verify(salesApp,times(1)).getSalesById(salesId);
+	}
+
+	@Test
+	public void testGenerateReport_givenSalesIdAndSalesEffective_thenGiveReportDataList(){
+		//given
+		String salesId = "S100";
+		salesApp = spy(new SalesApp());
+		Sales sales = mock(Sales.class);
+		doReturn(sales).when(salesApp).getSalesById(salesId);
+		doReturn(new Date()).when(sales).getEffectiveFrom();
+		doReturn(new Date()).when(sales).getEffectiveTo();
+		Date today = mock(Date.class);
+		when(today.after(any())).thenReturn(true);
+		when(today.before(any())).thenReturn(true);
+		SalesActivityReport report = mock(SalesActivityReport.class);
+		doReturn(report).when(salesApp).generateReport(anyList(),anyList());
+		//when
+		salesApp.generateSalesActivityReport(salesId,true);
+		//then
+		verify(salesApp,times(1)).getSalesReportData(sales);
+	}
+
+	@Test
+	public void testGenerateReport_givenSalesIdAndSalesEffective_thenGiveNoReportDataList(){
+		//given
+		String salesId = "S100";
+		salesApp = spy(new SalesApp());
+		Sales sales = mock(Sales.class);
+		doReturn(sales).when(salesApp).getSalesById(salesId);
+		doReturn(getYesterDay()).when(sales).getEffectiveFrom();
+		doReturn(getTomorrow()).when(sales).getEffectiveTo();
+		Date today = mock(Date.class);
+		//when
+		salesApp.generateSalesActivityReport(salesId,true);
+		//then
+		verify(salesApp,times(0)).getSalesReportData(sales);
+	}
+
+	private Date getYesterDay(){
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DATE,-1);
+		return calendar.getTime();
+	}
+
+	private Date getTomorrow(){
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DATE,1);
+		return calendar.getTime();
 	}
 
 
