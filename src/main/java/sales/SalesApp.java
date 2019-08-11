@@ -9,6 +9,7 @@ public class SalesApp {
 
 	private SalesReportDao salesReportDao = new SalesReportDao();
 	private SalesDao salesDao = new SalesDao();
+	private EcmService ecmService = new EcmService();
 	public void generateSalesActivityReport(String salesId, boolean isNatTrade) {
 
 		if (salesId == null) {
@@ -30,8 +31,7 @@ public class SalesApp {
 	}
 
 	protected void uploadDocument(SalesActivityReport report) {
-		EcmService ecmService = new EcmService();
-		ecmService.uploadDocument(report.toXml());
+		this.ecmService.uploadDocument(report.toXml());
 	}
 
 	protected List<String> getHeaders(boolean isNatTrade) {

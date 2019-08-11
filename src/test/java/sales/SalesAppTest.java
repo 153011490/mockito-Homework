@@ -16,6 +16,10 @@ public class SalesAppTest {
 
 	@Mock
 	private SalesDao salesDao;
+	@Mock
+	private SalesReportDao salesReportDao;
+	@Mock
+	private EcmService ecmService;
 	@InjectMocks
 	private SalesApp salesApp;
 
@@ -73,11 +77,28 @@ public class SalesAppTest {
 		doReturn(sales).when(salesApp).getSalesById(salesId);
 		doReturn(getYesterDay()).when(sales).getEffectiveFrom();
 		doReturn(getTomorrow()).when(sales).getEffectiveTo();
-		Date today = mock(Date.class);
 		//when
 		salesApp.generateSalesActivityReport(salesId,true);
 		//then
 		verify(salesApp,times(0)).getSalesReportData(sales);
+	}
+
+	@Test
+	public void testGenerateReport_givenSalesIdAndNatTradeIsTrue_thenGiveHeaders(){
+		//given
+		String salesId = "S100";
+		salesApp = spy(new SalesApp());
+		Sales sales = mock(Sales.class);
+		doReturn(sales).when(salesApp).getSalesById(salesId);
+		doReturn(new Date()).when(sales).getEffectiveFrom();
+		doReturn(new Date()).when(sales).getEffectiveTo();
+		boolean isNatTrade = true;
+		SalesActivityReport report = mock(SalesActivityReport.class);
+		doReturn(report).when(salesApp).generateReport(anyList(),anyList());
+		//when
+		salesApp.generateSalesActivityReport(salesId,isNatTrade);
+		//then
+		verify(salesApp,times(1)).getHeaders(isNatTrade);
 	}
 
 	private Date getYesterDay(){
