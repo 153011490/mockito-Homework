@@ -38,17 +38,15 @@ public class SalesAppTest {
 	}
 
 	@Test
-	public void testGenerateReport_givenSalesId_thenGiveSales(){
+	public void testGetSalesById_givenSalesId_thenGiveSalses(){
 		//given
 		String salesId = "S100";
-		salesApp = spy(new SalesApp());
-		Sales sales = mock(Sales.class);
-		doReturn(sales).when(salesApp).getSalesById(salesId);
-		doReturn(false).when(salesApp).isSalesEffective(sales);
+		Sales sales = new Sales();
+		when(salesDao.getSalesBySalesId(salesId)).thenReturn(sales);
 		//when
-		salesApp.generateSalesActivityReport(salesId,true);
+		Sales result = salesApp.getSalesById(salesId);
 		//then
-		verify(salesApp,times(1)).getSalesById(salesId);
+		Assert.assertEquals(sales,result);
 	}
 
 	@Test
