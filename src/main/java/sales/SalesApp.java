@@ -7,7 +7,9 @@ import java.util.List;
 
 public class SalesApp {
 
-	public void generateSalesActivityReport(String salesId, int maxRow, boolean isNatTrade, boolean isSupervisor) {
+	private SalesReportDao salesReportDao = new SalesReportDao();
+	private SalesDao salesDao = new SalesDao();
+	public void generateSalesActivityReport(String salesId, boolean isNatTrade) {
 
 		if (salesId == null) {
 			return;
@@ -27,12 +29,12 @@ public class SalesApp {
 
 	}
 
-	private void uploadDocument(SalesActivityReport report) {
+	protected void uploadDocument(SalesActivityReport report) {
 		EcmService ecmService = new EcmService();
 		ecmService.uploadDocument(report.toXml());
 	}
 
-	private List<String> getHeaders(boolean isNatTrade) {
+	protected List<String> getHeaders(boolean isNatTrade) {
 		List<String> headers = null;
 		if (isNatTrade) {
 			headers = Arrays.asList("Sales ID", "Sales Name", "Activity", "Time");
@@ -42,7 +44,7 @@ public class SalesApp {
 		return headers;
 	}
 
-	private boolean isSalesEffective(Sales sales) {
+	protected boolean isSalesEffective(Sales sales) {
 		Date today = new Date();
 		if (today.after(sales.getEffectiveTo())
 				|| today.before(sales.getEffectiveFrom())){
@@ -51,17 +53,15 @@ public class SalesApp {
 		return false;
 	}
 
-	private List<SalesReportData> getSalesReportData(Sales sales) {
-		SalesReportDao salesReportDao = new SalesReportDao();
-		return salesReportDao.getReportData(sales);
+	protected List<SalesReportData> getSalesReportData(Sales sales) {
+		return this.salesReportDao.getReportData(sales);
 	}
 
-	private Sales getSalesById(String salesId) {
-		SalesDao salesDao = new SalesDao();
-		return salesDao.getSalesBySalesId(salesId);
+	protected Sales getSalesById(String salesId) {
+		return this.salesDao.getSalesBySalesId(salesId);
 	}
 
-	private SalesActivityReport generateReport(List<String> headers, List<SalesReportData> reportDataList) {
+	protected SalesActivityReport generateReport(List<String> headers, List<SalesReportData> reportDataList) {
 		// TODO Auto-generated method stub
 		return null;
 	}
