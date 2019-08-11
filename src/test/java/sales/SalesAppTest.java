@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -51,59 +52,6 @@ public class SalesAppTest {
 	}
 
 	@Test
-	public void testGenerateReport_givenSalesIdAndSalesEffective_thenGiveReportDataList(){
-		//given
-		String salesId = "S100";
-		salesApp = spy(new SalesApp());
-		Sales sales = mock(Sales.class);
-		doReturn(sales).when(salesApp).getSalesById(salesId);
-		doReturn(new Date()).when(sales).getEffectiveFrom();
-		doReturn(new Date()).when(sales).getEffectiveTo();
-		Date today = mock(Date.class);
-		when(today.after(any())).thenReturn(true);
-		when(today.before(any())).thenReturn(true);
-		SalesActivityReport report = mock(SalesActivityReport.class);
-		doReturn(report).when(salesApp).generateReport(anyList(),anyList());
-		//when
-		salesApp.generateSalesActivityReport(salesId,true);
-		//then
-		verify(salesApp,times(1)).getSalesReportData(sales);
-	}
-
-	@Test
-	public void testGenerateReport_givenSalesIdAndSalesEffective_thenGiveNoReportDataList(){
-		//given
-		String salesId = "S100";
-		salesApp = spy(new SalesApp());
-		Sales sales = mock(Sales.class);
-		doReturn(sales).when(salesApp).getSalesById(salesId);
-		doReturn(getYesterDay()).when(sales).getEffectiveFrom();
-		doReturn(getTomorrow()).when(sales).getEffectiveTo();
-		//when
-		salesApp.generateSalesActivityReport(salesId,true);
-		//then
-		verify(salesApp,times(0)).getSalesReportData(sales);
-	}
-
-	@Test
-	public void testGenerateReport_givenSalesIdAndNatTradeIsTrue_thenGiveHeaders(){
-		//given
-		String salesId = "S100";
-		salesApp = spy(new SalesApp());
-		Sales sales = mock(Sales.class);
-		doReturn(sales).when(salesApp).getSalesById(salesId);
-		doReturn(new Date()).when(sales).getEffectiveFrom();
-		doReturn(new Date()).when(sales).getEffectiveTo();
-		boolean isNatTrade = true;
-		SalesActivityReport report = mock(SalesActivityReport.class);
-		doReturn(report).when(salesApp).generateReport(anyList(),anyList());
-		//when
-		salesApp.generateSalesActivityReport(salesId,isNatTrade);
-		//then
-		verify(salesApp,times(1)).getHeaders(isNatTrade);
-	}
-
-	@Test
 	public void testUploadDocument_givenAReport_thentoXmlBeCalled(){
 		//given
 		salesApp = spy(new SalesApp());
@@ -144,6 +92,19 @@ public class SalesAppTest {
 		//when
 		boolean result = salesApp.isSalesEffective(sales);
 		Assert.assertEquals(false,result);
+	}
+
+	@Test
+	public void testGetSalesReportData_givenEffectiveSales_thenReturnSalesReportDataList() {
+		//given
+		Sales sales=new Sales();
+		List<SalesReportData> salesReportDataList=new ArrayList<>();
+		salesReportDao=mock(SalesReportDao.class);
+		when(salesReportDao.getReportData(sales)).thenReturn(salesReportDataList);
+		//when
+		List<SalesReportData> result = salesApp.getSalesReportData(sales);
+		//then
+		Assert.assertEquals(salesReportDataList,result);
 	}
 
 	private Date getYesterDay(){
