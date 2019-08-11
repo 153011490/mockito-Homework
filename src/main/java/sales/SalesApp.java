@@ -17,7 +17,7 @@ public class SalesApp {
 
 		Sales sales = getSalesById(salesId);
 
-		if (isSalesEffective(sales)) return;
+		if (!isSalesEffective(sales)) return;
 
 		List<SalesReportData> reportDataList = getSalesReportData(sales);
 
