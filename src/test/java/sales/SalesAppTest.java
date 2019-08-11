@@ -101,6 +101,17 @@ public class SalesAppTest {
 		verify(salesApp,times(1)).getHeaders(isNatTrade);
 	}
 
+	@Test
+	public void testUploadDocument_givenAReport_thentoXmlBeCalled(){
+		//given
+		salesApp = spy(new SalesApp());
+		SalesActivityReport report = mock(SalesActivityReport.class);
+		//when
+		salesApp.uploadDocument(report);
+		//then
+		verify(report,times(1)).toXml();
+	}
+
 	private Date getYesterDay(){
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.DATE,-1);
