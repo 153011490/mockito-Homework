@@ -134,6 +134,18 @@ public class SalesAppTest {
 		Assert.assertEquals("Local Time",headers.get(3));
 	}
 
+	@Test
+	public void testIsSalesEffective_givenSalesAndNotEffective_thenReturnFalse() {
+		//given
+		salesApp = spy(new SalesApp());
+		Sales sales = mock(Sales.class);
+		doReturn(getYesterDay()).when(sales).getEffectiveFrom();
+		doReturn(getTomorrow()).when(sales).getEffectiveTo();
+		//when
+		boolean result = salesApp.isSalesEffective(sales);
+		Assert.assertEquals(false,result);
+	}
+
 	private Date getYesterDay(){
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.DATE,-1);
